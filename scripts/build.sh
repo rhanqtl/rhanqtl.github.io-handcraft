@@ -10,7 +10,7 @@ else
   mkdir build
 fi
 cp -r content/** build
-find -name '*.ad' -or -name 'a.out' -or -name '*.exe' | xargs rm
+find build -name '*.ad' -or -name 'a.out' -or -name '*.exe' | xargs rm
 
 # git checkout gh-pages
 
