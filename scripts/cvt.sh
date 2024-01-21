@@ -5,13 +5,13 @@ if [[ ! -f "$1" ]]; then
   exit 2
 fi
 
-asciidoctor \
-  --attribute=backend=html5 \
-  --attribute=sectnums \
-  --attribute=toc=left \
-  --attribute=nofooter \
-  --attribute=font-family=Inconsolata \
-  --attribute=icons=font \
+asciidoctor                               \
+  --attribute=backend=html5               \
+  --attribute=sectnums                    \
+  --attribute=toc=left                    \
+  --attribute=nofooter                    \
+  --attribute=font-family=Inconsolata     \
+  --attribute=icons=font                  \
   --attribute=source-highlighter=pygments \
   "$1"
 #:coderay-linenums-mode: table "$1"
