@@ -26,3 +26,6 @@ git switch "${DST_BRANCH}"
 find . -mindepth 1 -not -name 'build' -not -name 'CNAME' -not -name '.git' -not -path './.git/*' -exec rm -rf {} +
 cp build/** .
 rm -rf build
+
+git switch "${SRC_BRANCH}"
+find -name '*.html' -exec rm {} +
