@@ -13,14 +13,14 @@ if [[ -n $(git status -s) ]]; then
 fi
 
 git switch "${SRC_BRANCH}"
-find -name '*.ad' | xargs -n1 bash scripts/cvt.sh
+find content -name '*.ad' | xargs -n1 bash scripts/cvt.sh
 if [[ -d build ]]; then
   rm -rf build/**
 else
   mkdir build
 fi
 cp -r content/** build
-find build -name '*.ad' -or -name 'a.out' -or -name '*.exe' -exec rm -rf {} +
+find build -name '*.ad' -or -name 'a.out' -or -name '*.exe' | xargs rm -rf
 
 git switch "${DST_BRANCH}"
 find . -mindepth 1 -not -name 'build' -not -name 'CNAME' -not -name '.git' -not -path './.git/*' -exec rm -rf {} +
