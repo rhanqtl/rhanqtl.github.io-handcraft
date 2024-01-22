@@ -23,7 +23,7 @@ cp -r content/** build
 find build -name '*.ad' -or -name 'a.out' -or -name '*.exe' | xargs rm -rf
 
 git switch "${DST_BRANCH}"
-find . -mindepth 1 -not -name 'build' -not -name 'CNAME' -not -name '.git' -not -path './.git/*' -exec rm -rf {} +
+find . -mindepth 1 -not -name 'build' -not -path './build/*' -not -name 'CNAME' -not -name '.git' -not -path './.git/*' -exec rm -rf {} +
 cp -r build/** .
 rm -rf build
 git add . && git commit -m "publish $(date)" && git push
